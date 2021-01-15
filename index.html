@@ -1,52 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebBase From Everton Souza</title>
+    <script src="js/vue.js"></script>
 </head>
+
 <body>
-    <h1>Cadastro de Alunos</h1>
+    <div id="app">
 
-    <form>
-        <!-- Informar o atributo for da tag label com o mesmo nome do atributo name da tag input contribui para softwares para deficientes visuais conseguirem ler o que significa o campo 
-        -->
-        <label for="nomeCompleto">Nome Completo</label>
-        <input name="nomeCompleto" type="text">
+        <h1>Cadastro de Alunos</h1>
 
-        <label for="email">Email</label>
-        <input name="email" type="text">
+        <form>
+            <!-- Informar o atributo for da tag label com o mesmo nome do atributo name da tag input contribui para softwares para deficientes visuais conseguirem ler o que significa o campo 
+            -->
+            <label for="nomeCompleto">Nome Completo</label>
+            <input name="nomeCompleto" type="text">
 
-        <label for="nota">Nota</label>
-        <input name="nota" type="text">
+            <label for="email">Email</label>
+            <input name="email" type="text">
 
-        <input type="button" value="Cadastrar">
+            <label for="nota">Nota</label>
+            <input name="nota" type="text">
 
-        <div>
+            <input type="button" value="Cadastrar">
 
-            <table>
-                <thead>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Nota</th>
-                </thead>
+            <div>
 
-                <tbody>
-                    <tr>
-                        <td>Everton Souza</td>
-                        <td>everton@gmail.com</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Helena</td>
-                        <td>helena@gmail.com</td>
-                        <td>10</td>
-                    </tr>
-                </tbody>
+                <table>
+                    <thead>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Nota</th>
+                    </thead>
 
-            </table>
-        </div>
+                    <tbody>
+                        <tr v-for="aluno in alunos">
+                            <td>{{aluno.nome}}</td>
+                            <td>{{aluno.email}}</td>
+                            <td>{{aluno.nota}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+
+    </div>
+
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                alunos: [
+                    { nome: 'Everton Souza', email: 'everton@gmail.com', nota: 10 },
+                    { nome: 'Helena Silva', email: 'helena@gmail.com', nota: 10 },
+                    { nome: 'Roberto Matos', email: 'roberto@gmail.com', nota: 10 }
+                ]
+            }
+        })
+    </script>
 
     </form>
 </body>
+
 </html>
